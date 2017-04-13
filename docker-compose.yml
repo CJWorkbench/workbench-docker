@@ -1,0 +1,28 @@
+# Bring up all the pieces necessary to run the workbenc
+# Data persists in dbdata in local dir
+
+version: '3'
+
+services:
+
+  db:
+    image: postgres:9
+    environment:
+      - POSTGRES_USER=cjworkbench
+      - POSTGRES_PASSWORD=cjworkbench
+      - POSTGRES_DB=cjworkbench
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./dbdata:/var/lib/postgresql/data
+
+  web:
+    image: jstray/cjworkbench
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    command: ["CMD-SHELL", "start-prod.sh"]
+
+
+
