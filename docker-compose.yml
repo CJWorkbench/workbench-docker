@@ -17,12 +17,17 @@ services:
       - ./dbdata:/var/lib/postgresql/data
 
   web:
-    image: jstray/cjworkbench
+    image: jonathanstray/cjworkbench
     depends_on:
       - db
+
+    # user must set this before running docker-compose
+    environment:
+      - CJW_SECRET_KEY 
+
     ports:
       - "8000:8000"
-    command: ["CMD-SHELL", "start-prod.sh"]
+    command: /bin/bash /cjworkbench/start-prod.sh
 
 
 
