@@ -7,6 +7,7 @@ services:
 
   db:
     image: postgres:9
+    container_name: cjw-db
     environment:
       - POSTGRES_USER=cjworkbench
       - POSTGRES_PASSWORD=cjworkbench
@@ -15,19 +16,24 @@ services:
       - "5432:5432"
     volumes:
       - ./dbdata:/var/lib/postgresql/data
+      - data:/cjworkbench
 
   web:
     image: jonathanstray/cjworkbench
+    container_name: cjw-web
     depends_on:
       - db
-
     # user must set this before running docker-compose
     environment:
       - CJW_SECRET_KEY 
 
+    volumes:
+      - data:/cjworkbench
+
     ports:
       - "8000:8000"
-    command: /bin/bash /cjworkbench/start-prod.sh
+    command: /cjworkbench/start-prod.sh
 
 
-
+volumes:
+    data: {}
