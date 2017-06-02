@@ -25,6 +25,10 @@ services:
     # user must set this before running docker-compose
     environment:
       - CJW_SECRET_KEY 
+      - CJW_TWITTER_CONSUMER_KEY
+      - CJW_TWITTER_CONSUMER_SECRET
+      - CJW_TWITTER_ACCESS_TOKEN
+      - CJW_TWITTER_ACCESS_TOKEN_SECRET
 
     ports:
       - "8000:8000"
