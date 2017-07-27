@@ -3,6 +3,7 @@ Docker config for CJWorkbench production deployment. This relies on predefined d
 
 # First time start
 
+Set production settings environment variables for your shell: `source ~/.env`
 Create containers and volumes: `docker-compose up -d`
 
 Then create an admin user like this:
@@ -11,9 +12,12 @@ Then create an admin user like this:
 
 # Starting and stopping
 
+Make sure you've done `source ~/.env`
 Use `docker-compose up -d` and `docker-compose down`
 
 # To update
+
+Make sure you've done `source ~/.env`
 
 ```
 docker-compose down
