@@ -28,7 +28,7 @@ services:
     depends_on:
       - db
     volumes:
-      - modules:/cjworkbench/importedmodules
+      - importedmodules:/cjworkbench/importedmodules
 
     # user must set these before running docker-compose
     environment:
