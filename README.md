@@ -34,5 +34,8 @@ docker-compose up -d
 ```
 
 # To run commands inside server context
-`docker exec -it cjw-web bash`
+`docker exec -it cjw-web [command]`
+
+To get a shell on the machine, use `/bin/bash` for the command.
+
 
