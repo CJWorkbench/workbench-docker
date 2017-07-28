@@ -17,8 +17,10 @@ Use `docker-compose up -d` and `docker-compose down`
 
 # Viewing logs
 
-For webserver `docker logs cjw-web`
-For database  `docker logs cjw-db`
+For webserver `docker logs cjw-web`.
+
+For database  `docker logs cjw-db`.
+
 Add `-f` to follow logs, i.e. continuously print out most recent messages.
 
 # To update
