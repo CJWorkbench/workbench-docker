@@ -41,6 +41,7 @@ services:
       - CJW_TWITTER_ACCESS_TOKEN
       - CJW_TWITTER_ACCESS_TOKEN_SECRET
       - CJW_SENDGRID_API_KEY
+      - ENIGMA_COM_API_KEY
 
     ports:
       - "8000:8000"
