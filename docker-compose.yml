@@ -29,6 +29,7 @@ services:
       - db
     volumes:
       - importedmodules:/cjworkbench/importedmodules
+      - saveddata:/cjworkbench/media
 
     # user must set these before running docker-compose
     environment:
@@ -51,4 +52,5 @@ services:
 volumes:
     dbdata: {}
     importedmodules: {}
+    saveddata: {}
 
