@@ -44,6 +44,10 @@ services:
       - CJW_TWITTER_ACCESS_TOKEN_SECRET
       - CJW_SENDGRID_API_KEY
       - ENIGMA_COM_API_KEY
+      - CJW_SENDGRID_INVITATION_ID
+      - CJW_SENDGRID_CONFIRMATION_ID
+      - CJW_SENDGRID_PASSWORD_CHANGE_ID
+      - CJW_SENDGRID_PASSWORD_RESET_ID
 
     ports:
       - "8000:8000"
@@ -53,4 +57,3 @@ volumes:
     dbdata: {}
     importedmodules: {}
     saveddata: {}
-
