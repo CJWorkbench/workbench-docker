@@ -23,7 +23,7 @@ services:
       - dbdata:/var/lib/postgresql/data
 
   web:
-    image: jonathanstray/cjworkbench
+    image: cjworkbench/cjworkbench-main
     container_name: cjw-web
     depends_on:
       - db
