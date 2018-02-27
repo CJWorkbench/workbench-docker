@@ -1,0 +1,13 @@
+# download latest image. ignore the override file that says to use "deploy" tag
+docker-compose -f docker-compose.yml pull
+
+# Which image did we get?
+IMAGE=$(docker image ls | grep latest | awk '{ print $3 }')
+
+# Tag this image on dockerhub
+docker tag $IMAGE cjworkbench/cjworkbench-main:deployed
+docker login -u cjworker -p "$(cat secrets/cjworker-dockerhub)"
+docker push cjworkbench/cjworkbench-main
+
+docker-compose up -d
+

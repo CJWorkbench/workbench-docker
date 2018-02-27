@@ -27,9 +27,12 @@ services:
     container_name: cjw-web
     depends_on:
       - db
+    links:
+      - db:cjw-db
     volumes:
       - importedmodules:/cjworkbench/importedmodules
       - saveddata:/cjworkbench/media
+      - ./secrets:/cjworkbench/secrets
 
     # user must set these before running docker-compose
     env_file: /home/cjworkbench/.env
