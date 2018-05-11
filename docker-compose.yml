@@ -12,7 +12,7 @@ services:
 
   db:
     image: postgres:9
-    container_name: cjw-db
+    container_name: workbench-db
     environment:
       - POSTGRES_USER
       - POSTGRES_PASSWORD
@@ -23,23 +23,23 @@ services:
       - dbdata:/var/lib/postgresql/data
 
   web:
-    image: cjworkbench/cjworkbench-main
-    container_name: cjw-web
+    image: workbenchdata/workbenchdata
+    container_name: workbench-web
     depends_on:
       - db
     links:
-      - db:cjw-db
+      - db:workbench-db
     volumes:
-      - importedmodules:/cjworkbench/importedmodules
-      - saveddata:/cjworkbench/media
-      - ./secrets:/cjworkbench/secrets
+      - importedmodules:/app/importedmodules
+      - saveddata:/app/media
+      - ./secrets:/app/secrets
 
     # user must set these before running docker-compose
     env_file: /home/cjworkbench/.env
 
     ports:
       - "8000:8000"
-    command: /cjworkbench/start-prod.sh
+    command: /app/start-prod.sh
 
 volumes:
     dbdata: {}
