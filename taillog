@@ -1,1 +1,1 @@
-docker logs -f cjw-web
+docker logs -f workbench-web

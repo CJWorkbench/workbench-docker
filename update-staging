@@ -1,4 +1,4 @@
-if [ ! -f secrets/cjworker-dockerhub ]; then
+if [ ! -f secrets/workbench-dockerhub ]; then
     echo "Dockerhub login not found -- are you trying to run update-staging on production?"
 fi
 
@@ -6,12 +6,12 @@ fi
 docker-compose -f docker-compose.yml pull
 
 # Which image did we get?
-IMAGE=$(docker image ls | grep latest | awk '{ print $3 }')
+IMAGE=$(docker image ls | grep "latest" | awk '{ print $3 }')
 
 # Tag this image on dockerhub
-docker tag $IMAGE cjworkbench/cjworkbench-main:deployed
-docker login -u cjworker -p "$(cat secrets/cjworker-dockerhub)"
-docker push cjworkbench/cjworkbench-main
+docker tag $IMAGE workbenchdata/workbenchdata:deployed
+docker login -u cjworker -p "$(cat secrets/workbench-dockerhub)"
+docker push workbenchdata/workbenchdata
  
 docker-compose up -d
 

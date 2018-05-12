@@ -1,1 +1,1 @@
-docker exec -it cjw-web /bin/bash
+docker exec -it workbench-web /bin/bash
