@@ -1,1 +1,1 @@
-docker exec -it workbench-web "pipenv run ./manage.py reload-imported-modules"
+docker exec -it workbench-web python ./manage.py reload-imported-modules
